@@ -1,5 +1,11 @@
-<?php $docroot = $_SERVER['DOCUMENT_ROOT'];
-require_once("$docroot/cms_project/includes/db.php");  ?>
+<?php
+
+$docroot = $_SERVER['DOCUMENT_ROOT'];
+require_once("$docroot/cms_project/includes/db.php");
+require_once("functions.php");
+
+ob_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">

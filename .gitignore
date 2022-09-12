@@ -1,0 +1,2 @@
+# exclude config database
+includes/config.php

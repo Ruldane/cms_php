@@ -39,15 +39,15 @@
                     Posts <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="posts_dropdown" class="collapse">
                     <li>
-                        <a href="#">Vieuw All Posts</a>
+                        <a href="posts.php">Vieuw All Posts</a>
                     </li>
                     <li>
-                        <a href="#">Add Post</a>
+                        <a href="posts?source=add_post">Add Post</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Categories</a>
+                <a href="categories.php"><i class="fa fa-fw fa-wrench"></i> Categories</a>
             </li>
 
             <li class="active">

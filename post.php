@@ -118,13 +118,37 @@
                                 }
                             }
                             ?>
+
+                            <?php
+                            if (isset($_POST['create_comment'])) {
+                                $post_id = $_GET['p_id'];
+
+                                $comment_author = $_POST['comment_author'];
+                                $comment_email = $_POST['comment_email'];
+                                $comment_content = $_POST['comment_content'];
+
+                                $query = "INSERT INTO comments (comment_post_id, comment_author, comment_email, comment_content, comment_status, comment_date)";
+                                $query .= "VALUES ($post_id, '{$comment_author}', '{$comment_email}', '{$comment_content}', 'unapproved', now())";
+
+                                $create_comment = $database->query($query);
+                            }
+                            ?>
+
                             <div class="well">
-                                <h4>Leave a Comment:</h4>
-                                <form role="form">
+                                <form role="form" action="" method="post">
                                     <div class="form-group">
-                                        <textarea class="form-control" rows="3"></textarea>
+                                        <label for="comment_author">Author</label>
+                                        <input type="text" name="comment_author" class="form-control">
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <div class="form-group">
+                                        <label for="comment_email">Email</label>
+                                        <input type="email" name="comment_email" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="comment">Your comment</label>
+                                        <textarea class="form-control" rows="3" name="comment_content"> </textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" name="create_comment">Submit</button>
                                 </form>
                             </div>
 
@@ -256,9 +280,14 @@
             <!-- /.row -->
 
             <hr>
+
             <!-- Footer -->
             <footer>
-
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>Copyright &copy; Your Website 2014</p>
+                    </div>
+                </div>
                 <!-- /.row -->
             </footer>
 

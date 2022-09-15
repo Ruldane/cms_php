@@ -10,8 +10,13 @@ require_once("includes/navigation.php")
         <div class="col-md-8">
 
             <?php
-            $query = "SELECT * FROM posts";
+            $query = "SELECT * FROM posts WHERE post_status = 'published'";
             $select_all_posts = $database->query($query);
+
+            if (mysqli_num_rows($select_all_posts) == 0) {
+                echo "<h1>No post here sorry!</h1>";
+            }
+
             while ($row = mysqli_fetch_assoc($select_all_posts)) {
                 $post_id =  $row['post_id'];
                 $post_title =  $row['post_title'];
@@ -19,6 +24,8 @@ require_once("includes/navigation.php")
                 $post_date =  $row['post_date'];
                 $post_image =  $row['post_image'];
                 $post_content =  substr($row['post_content'], 0, 100);
+                $post_status =  $row['post_status'];
+
             ?>
             <h1 class="page-header">
                 Page Heading

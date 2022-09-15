@@ -15,7 +15,7 @@ require_once("includes/navigation.php")
                 $post_cat_id = $_GET['category'];
             }
 
-            $query = "SELECT * FROM posts WHERE post_category_id = {$post_cat_id}";
+            $query = "SELECT * FROM posts WHERE post_category_id = {$post_cat_id} ";
             $select_all_posts = $database->query($query);
             while ($row = mysqli_fetch_assoc($select_all_posts)) {
                 $post_id =  $row['post_id'];

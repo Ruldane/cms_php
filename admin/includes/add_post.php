@@ -9,7 +9,7 @@ if (isset($_POST['create_post'])) {
     $post_content = $_POST['post_content'];
 
     $post_date = date('d-m-y');
-    $post_comment_count = 4;
+    $post_comment_count = 0;
 
 
     if (isset($_FILES['image'])) {

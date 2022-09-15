@@ -45,11 +45,8 @@ if (isset($_POST['edit_post'])) {
                 $post_image = $row['post_image'];
             }
         }
-
         move_uploaded_file($tmpName, '../images/' . $post_image);
     }
-
-    echo "hi";
 
     $query = "UPDATE posts SET ";
     $query .=  "post_title = '{$post_title}',";

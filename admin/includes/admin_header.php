@@ -2,9 +2,19 @@
 
 $docroot = $_SERVER['DOCUMENT_ROOT'];
 require_once("$docroot/cms_project/includes/db.php");
+ob_start();
 require_once("functions.php");
+session_start();
 
 ob_start();
+
+if (!isset($_SESSION['user_role'])) {
+    header('Location: ../index.php');
+} else {
+    if ($_SESSION['user_role'] !== "admin") {
+        header('Location: ../index.php');
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +28,7 @@ ob_start();
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>CMS Admin</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
